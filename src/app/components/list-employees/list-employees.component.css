@@ -1,0 +1,10 @@
+.table, .table th, .table td {
+    background-color: transparent !important; /* Hace el fondo transparente */
+    color: white !important; /* Hace el texto blanco */
+}
+
+.title{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}

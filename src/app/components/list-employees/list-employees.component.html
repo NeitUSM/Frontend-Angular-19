@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="title">
+        <h4>Listado de empleados</h4>
+        <button type="button" class="btn btn-primary" routerLink = "/add">Agregar Empleado</button>
+    </div>
+    
+    <table class="table table-hover">
+        <thead>
+          <tr style="color: white">
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Salario</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of listEmployees" class="table-active">
+            <td >{{employee.id}}</td>
+            <td >{{employee.name}}</td>
+            <td >{{employee.salary}}</td>
+            <td>
+                <button type="button" class="btn btn-info btn-sm" [routerLink]="['/edit', employee.id]">Editar</button>
+                <button type="button" class="btn btn-secondary btn-sm ms-2" (click)="deleteEmployee(employee.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+

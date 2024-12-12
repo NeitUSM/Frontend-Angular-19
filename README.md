@@ -1,59 +1,33 @@
-# Frontend
+# Proyecto Frontend con conexión a backend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+## Descripción
+Este es un proyecto frontend creado con el proposito de consumir -de manera básica- los enpoints de una API desarrollada en el backend en NodeJS. También cuenta con la opción de dockerizar el proyecto, permitiendo que exista una comunicación entre frontend - API - backend - base de datos en una red interna de Docker. 
 
-## Development server
+## ¡Importante!
+- El correcto funcionamiento del proyecto depende del repositorio **Node-MySQL-API**, donde están desarrolladas las conexiones del backend y la base de datos, adicionalmente, están los endpoints que consume el frontend. Se recomienda realizar las instalaciones de dicho repositorio antes de correr este proyecto.
+- Para el completo funcionamiento de la aplicación web se debe realizar la instalación de las siguientes dependencias. Estas, fueron instaladas desde las páginas oficiales en Ubuntu.
 
-To start a local development server, run:
+### Dependencias
+Las siguientes dependencias estarán asignadas con la versión con la que fue desarrollada la aplicación:
+1. **Docker v.27.3.1**
+2. **Docker-compose v.1.29.2**
+3. **Node v.20**
+4. **Angular v.19**
 
-```bash
-ng serve
-```
+## ¿Cómo ejecutar la aplicación web?
+1. Abrir el directorio raíz en la terminal
+2. Ejecutar el comando **npm install** para instalar las dependencias
+3. Ejecutar el comando **ng serve --o**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## ¿Cómo genero el contenedor en Docker y ejecuto la aplicación web?
+Se explicará tomando en cuenta que los contenedores de la base de datos y el backend están corriendo, y funcionan correctamente.
+1. Abrir el directorio raíz en la terminal
+2. Ejecutar el comando **npm run build --prod** para generar los directorios y archivos en **./dist/frontend/browser/**
+3. Construir la imagen con **sudo build -t angular-frontend .**
+4. Construir el contenedor corriendo la imagen con **sudo docker run --rm -d -p 80:80 --name angular-frontend --network node-angular-mysql angular-frontend**
+5. Ingresar en el navegador web a **localhost:80**
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Tecnologías utilizadas
+- **Creación de contenedores**: Docker.
+- **Contenedor del proyecto**: Angular y nginx.
+- **Proyecto realizado en**: Angular 19.

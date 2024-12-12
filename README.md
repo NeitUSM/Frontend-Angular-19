@@ -31,3 +31,5 @@ Se explicará tomando en cuenta que los contenedores de la base de datos y el ba
 - **Creación de contenedores**: Docker.
 - **Contenedor del proyecto**: Angular y nginx.
 - **Proyecto realizado en**: Angular 19.
+
+<h4>Proyecto realizado por Natán Apablaza</h4>
